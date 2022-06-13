@@ -1,0 +1,330 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "IP Global",
+        "description": "Swagger de IP Global",
+        "contact": {
+            "email": "jorge.alferez.adan@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost",
+            "description": "Entorno de desarrollo"
+        }
+    ],
+    "paths": {
+        "/api/posts/get/{id}": {
+            "get": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "Obtener una publicación",
+                "operationId": "d5d43a5c9b2f08f75c00ee44795a1bf1",
+                "responses": {
+                    "200": {
+                        "description": "Obtener una publicación.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Post"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Publicación no encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Post not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/store": {
+            "post": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "Guardar publicación",
+                "operationId": "a50a90999dd3611bcba4fee54b1712e2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Post"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Publicación grabada correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Post"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Publicación no válida",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "There has some errors while creating post"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/get/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Obtener usuario",
+                "operationId": "d49ff74cfd6636ea4ce4232764cbb83b",
+                "responses": {
+                    "200": {
+                        "description": "Obtener usuario.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/User"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/store": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Guardar usuario",
+                "operationId": "7853cc6a8b92e077249fc96c0e47a1f7",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuario grabado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/User"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Usuario no válido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "There has some errors while creating user"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Post": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "title": {
+                        "description": "Título de la publicación",
+                        "type": "string",
+                        "readOnly": "false"
+                    },
+                    "body": {
+                        "description": "Texto de la publicación",
+                        "type": "text",
+                        "readOnly": "false",
+                        "example": "Lorem ipsum dolor sit amet."
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Post"
+                }
+            },
+            "User": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "name": {
+                        "description": "Nombre del usuario",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "John Doe"
+                    },
+                    "email": {
+                        "description": "Texto de la publicación",
+                        "type": "email",
+                        "readOnly": "false",
+                        "example": "john.doe@email.com"
+                    },
+                    "address": {
+                        "description": "Json de la dirección",
+                        "type": "json",
+                        "readOnly": "false"
+                    },
+                    "phone": {
+                        "description": "Teléfono",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "+34601444555"
+                    },
+                    "website": {
+                        "description": "Página web",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "http://example.com"
+                    },
+                    "company": {
+                        "description": "Empresa",
+                        "type": "json",
+                        "readOnly": "false"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "IP Global",
+            "description": "Endpoints de Ip Global"
+        }
+    ]
+}
